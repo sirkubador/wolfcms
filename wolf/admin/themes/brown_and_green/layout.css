@@ -13,6 +13,15 @@
     height: 0.5em;
 }
 
+.clearer {
+	clear: both;
+	display: block;
+        /* these are special since no text should be in .clearer */
+	font-size: 0;
+	height: 0;
+	line-height: 0;
+}
+
 /* HEADER layout */
 header {
     display: block;
@@ -46,7 +55,7 @@ nav .counter { display: none; }
 
 /* CONTENT layout */
 #content {
-    margin: 1em 1.8em 1em 1.5em;
+    margin: 1em 2em 0em 1.5em;
 }
 
 #page-content { display: block; }
@@ -90,8 +99,7 @@ nav .counter { display: none; }
 footer {
     display: block;
     clear: both;
-    margin: 0em 2em;
-    padding: 1em 0em;
+    margin: 2em 2em 0em 2em;
 }
 
 /* USER CONTROLS layout */
