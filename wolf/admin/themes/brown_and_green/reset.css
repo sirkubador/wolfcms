@@ -1,0 +1,7 @@
+/* Reset ------------------------------------------------------------------ */
+html,body,div,ul,ol,li,dl,dt,dd,form,fieldset,input,select,textarea,pre,code,
+h1,h2,h3,h4,h5,h6,p,blockquote,hr,table,th,td {margin: 0; padding: 0;}
+h1,h2,h3,h4,h5,h6 {font-size: 100%; font-weight: normal;}
+ul {list-style: none;}
+html,body,a img {border: 0;}
+table {border-collapse:collapse; border-spacing:0;}

@@ -101,32 +101,36 @@ if (isset($this->vars['content_for_layout']->vars['action'])) {
             <?php endif; ?>
         </nav>
 
-            <section id="content">
-                <?php if (isset($section_bar)) { ?>
-                    <div id="section_bar">
-                        <?php echo $section_bar; ?>
-                    </div> <!-- #section_bar -->
-                <?php } ?>
+        <div id="content" <?php if (isset($sidebar) && trim($sidebar) != '') { echo ' class="use-sidebar sidebar-at-side2"'; }?>>
 
-                <?php if (isset($page_bar)) { ?>
-                    <div id="page_bar">
-                        <?php echo $page_bar; ?>
-                    </div> <!-- #page_bar -->
-                <?php } ?>
-
-                <section id="page_content">
-                    <?php echo $content_for_layout; ?>
-                </section>
-            </section>            
-
-            <?php if (isset($sidebar)) { ?>
-            <aside id="sidebar">
-                <!-- sidebar -->
-                <?php echo $sidebar; ?>
-                <!-- end sidebar -->
-            </aside>
+            <?php if (isset($section_bar)) { ?>
+                <div id="section-bar">
+                    <?php echo $section_bar; ?>
+                </div> <!-- #section_bar -->
             <?php } ?>
 
+            <?php if (isset($page_bar)) { ?>
+                <div id="page-bar">
+                    <?php echo $page_bar; ?>
+                </div> <!-- #page_bar -->
+            <?php } ?>
+
+            <section id="page-content">
+                <?php echo $content_for_layout; ?>
+            </section>
+                
+            <aside id="sidebar">
+                <!-- sidebar -->
+                <?php if (isset($sidebar) && trim($sidebar) != '') {
+                echo $sidebar;
+                } ?>
+                <!-- end sidebar -->
+            </aside>
+
+            <div class="clearer">&nbsp;</div>
+
+        </div>            
+        
         <footer>
             <p>
                 <?php echo __('Thank you for using'); ?> <a href="http://www.wolfcms.org/" target="_blank">Wolf CMS</a> <?php echo CMS_VERSION; ?> | <a href="http://forum.wolfcms.org/" target="_blank"><?php echo __('Feedback'); ?></a> | <a href="http://wiki.wolfcms.org/" target="_blank"><?php echo __('Documentation'); ?></a>
