@@ -25,7 +25,7 @@ if (!defined('IN_CMS')) { exit(); }
  */
 ?>
 <h1><?php echo __('Moderation'); ?></h1>
-<div id="comments-def">
+<div id="comments-def" class="index-def">
     <div class="comment"><?php echo __('Comments'); ?></div>
     <div class="modify"><?php echo __('Modify'); ?></div>
 </div>

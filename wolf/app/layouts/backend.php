@@ -45,9 +45,25 @@ if (isset($this->vars['content_for_layout']->vars['action'])) {
         <meta charset="utf-8" />
         <title><?php echo Setting::get('admin_title'), ' - ', $title; ?></title>
 
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        
         <link rel="shortcut icon" href="/admin/themes/<?php echo Setting::get('theme'); ?>/favicon.ico" type="image/vnd.microsoft.icon" />
         <link rel="stylesheet" href="<?php echo URI_PUBLIC; ?>wolf/admin/themes/<?php echo Setting::get('theme'); ?>/screen.css" media="screen" type="text/css" />
 
+<?php foreach(Plugin::$plugins as $plugin_id => $plugin): ?>
+<?php if (file_exists(CORE_ROOT . '/plugins/' . $plugin_id . '/' . $plugin_id . '.js')): ?>
+<script type="text/javascript" charset="utf-8" src="<?php echo URI_PUBLIC; ?>wolf/plugins/<?php echo $plugin_id.'/'.$plugin_id; ?>.js"></script>
+<?php endif; ?>
+<?php if (file_exists(CORE_ROOT . '/plugins/' . $plugin_id . '/' . $plugin_id . '.css')): ?>
+<link href="<?php echo URI_PUBLIC; ?>wolf/plugins/<?php echo $plugin_id.'/'.$plugin_id; ?>.css" media="screen" rel="Stylesheet" type="text/css" />
+<?php endif; ?>
+<?php endforeach; ?>
+<?php foreach(Plugin::$javascripts as $jscript_plugin_id => $javascript): ?>
+<script type="text/javascript" charset="utf-8" src="<?php echo URI_PUBLIC; ?>wolf/plugins/<?php echo $javascript; ?>"></script>
+<?php endforeach; ?>
+        
         <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/cp-datepicker.js"></script>
         <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/wolf.js"></script>
         <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/jquery-1.4.2.min.js"></script> 

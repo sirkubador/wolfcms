@@ -208,7 +208,8 @@ a#site-view-link:hover {
 }
 
 #page-content .index-def .snippet, #page-content .index-def .layout, #page-content .index-def .modify,
-#site-map-def .page, #site-map-def .status, #site-map-def .view, #site-map-def .modify {
+#site-map-def .page, #site-map-def .status, #site-map-def .view, #site-map-def .modify,
+#comments-def .page, #comments-def .status, #comments-def .view, #comments-def .modify {
     padding: 1em;
     padding-right: 0em;
     background-color: #f0f0f0;
@@ -216,7 +217,22 @@ a#site-view-link:hover {
 
 
 /* FILES */
-table#files-list {
-    display: inline-block;
-    width: 100%;
+#page-content table {
+    display: table;
+    width: 97%;
+    margin: 1.3em auto;
+    padding: 1em;
+}
+
+#page-content table thead tr th {
+    background-color: #f0f0f0;
+    text-align: left;
+    padding: 0.5em 1em;
+    height: 45px;
+}
+
+#page-content table tbody tr td {
+    padding: 0.5em 1em;
+    height: 45px;
+    border-top: 1px solid #e5e5e5;
 }
