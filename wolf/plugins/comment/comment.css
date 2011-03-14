@@ -94,21 +94,8 @@ div.pagination span.disabled {
     background-color: #f5f5f5;
 }
 
-#comments .moderate{
-	background:#FF9393 none repeat scroll 0 0;
-	border-color:#99CC99;
-	border-bottom:1px solid #E5EFF8;
-}
-#comments .approve {
-	background:#FF9393 none repeat scroll 0 0;
-	border-color:#99CC99;
-	border-bottom:1px solid #E5EFF8;	
-}
-#comments .even {
-	background:#CAE4F7 none repeat scroll 0 0;
-}
-#comments .odd {
-	background:#F7FBFF none repeat scroll 0 0;
+#comments .infos {
+    font-size: .83em; color: #666;
 }
 
 div.pagination {
@@ -130,7 +117,7 @@ div.pagination a {
 div.pagination a:hover, div.pagination a:active {
 	border:1px solid #2E2924;
 	color: #76A83A;
-	background-color: #E5F4D2;
+	background-color: #F3FCE8;
 }
 div.pagination span.current {
 	padding: 2px 5px 2px 5px;

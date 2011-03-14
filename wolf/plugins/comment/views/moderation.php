@@ -55,7 +55,7 @@ $lastpage = ceil($totalrecords / $rowspage);
 if($comments_count <= $rowspage) { $lastpage = 0; } else { $lastpage = abs($lastpage - 1); }
 ?>
 <?php if ($comments_count > 0): ?>
-<ol id="comments">
+<ul id="comments">
 
 <?php while ($comment = $stmt->fetchObject()): ?>
     <li class="<?php echo odd_even(); ?> moderate">
@@ -83,7 +83,7 @@ if($comments_count <= $rowspage) { $lastpage = 0; } else { $lastpage = abs($last
           </div>
       </li>
 <?php endwhile; ?>
-</ol>
+</ul>
 <?php else: ?>
 <h3><?php echo __('No comments found for moderation.'); ?></h3>
 <?php endif; ?>

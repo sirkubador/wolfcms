@@ -116,9 +116,12 @@ a#site-view-link {
 }
 
 /* SNIPPETS & LAYOUT INDEX layout */
-#page-content ul#snippets li, #page-content ul#layouts li {
+/*#page-content ul#snippets li, #page-content ul#layouts li {
+    padding: 0.4em 0;
+}*/
+#page-content ul li {
     padding: 0.4em 0;
 }
 #page-content ul#snippets .handle, #page-content ul#layouts .handle { display: none; vertical-align: middle; margin-left: 0.5em; }
-#page-content ul#snippets li div, #page-content ul#layouts li div { display: inline-block; float: right; }
+#page-content ul#comments li div, #page-content ul#snippets li div, #page-content ul#layouts li div { display: inline-block; float: right; }
 #page-content ul#snippets li img, #page-content ul#layouts img { vertical-align: middle; }
