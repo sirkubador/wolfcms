@@ -97,7 +97,6 @@
     background-color: #f5f5f5;
 }
 #site-map ul { list-style: none; margin:0; padding:0; background: #fff; }
-#site-map .page, #site-map-root .page {}
 #site-map .status, #site-map-root .status { position: absolute; text-align: center; top: 10px; right: 175px; width: 100px }
 #site-map .view-page, #site-map-root .view-page { position: absolute; text-align: center; top: 10px; right: 100px; width: 75px }
 #site-map .modify, #site-map-root .modify { position: absolute; text-align: center; top: 10px; right: 7px; width: 85px }
@@ -106,3 +105,20 @@
 #site-map .status.draft-status { color: #c00; }
 #site-map .status.published-status { color: #000; }
 #site-map .status.hidden-stats { color: #0c0; }
+
+
+ul#site-map-root {
+    margin-top: 0;
+    order: 0;
+}
+
+ul#site-map-root {
+    padding: 0px 2px;
+}
+
+ul#site-map {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+}

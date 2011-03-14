@@ -202,7 +202,21 @@ a#site-view-link:hover {
 }
 
 /* SNIPPETS & LAYOUT INDEX decorations */
-#page-content ul#snippets li, #page-content ul#layouts { list-style: none; }
+#page-content ul#snippets, #page-content ul#layouts { margin-top: 0px; list-style: none; }
 #page-content ul#snippets li, #page-content ul#layouts li {
     border-top: 1px solid #e5e5e5;
+}
+
+#page-content .index-def .snippet, #page-content .index-def .layout, #page-content .index-def .modify,
+#site-map-def .page, #site-map-def .status, #site-map-def .view, #site-map-def .modify {
+    padding: 1em;
+    padding-right: 0em;
+    background-color: #f0f0f0;
+}
+
+
+/* FILES */
+table#files-list {
+    display: inline-block;
+    width: 100%;
 }
