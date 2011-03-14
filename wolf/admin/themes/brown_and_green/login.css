@@ -38,7 +38,6 @@ h1 {
     border-bottom: 3px solid #76a83a;
     /*background-color: #988060; */
     background-color: #2e2924;
-    text-shadow: 1px 2px 3px #e5e5e5;
     
     /* border radius stuff */
     border-radius:10px 10px 0 0;
@@ -116,8 +115,10 @@ input.submit:hover {
     /* Border radius and shadows */
     border-radius: 10px;
     -moz-border-radius: 10px;
-    box-shadow: 0 0 10px #929292;
-    -moz-box-shadow: 0 0 10px #929292;
+    
+    -moz-box-shadow: 0px 3px 5px 3px #888;
+    -webkit-box-shadow: 0px 3px 5px 3px #888;
+    box-shadow: 0px 3px 5px 3px #888;
 }
 
 /* Login dialog ----------------------------------------------------------- */
