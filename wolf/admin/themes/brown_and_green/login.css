@@ -14,7 +14,7 @@
 
 body {
     font: 12px verdana, arial, helvetica, sans-serif;
-    background-color: /*#E5E5E5;*/ #fff;
+    background-color: #fff;
     color: #2e2924;
     text-align: center;
     line-height: 150%;
@@ -22,7 +22,7 @@ body {
 
 a {
     color: #2e2924;
-    font-weight: 600;
+    font-weight: bold;
     text-decoration: underline;
 }
 
@@ -35,13 +35,11 @@ h1 {
     padding: 20px 10px;
     color: #fff;
     font-size: 20px;
-    border-bottom: 3px solid #76a83a;
-    /*background-color: #988060; */
+    border-bottom: 4px solid #76a83a;
     background-color: #2e2924;
-    
-    /* border radius stuff */
-    border-radius:10px 10px 0 0;
-    -moz-border-radius:10px 10px 0 0;
+    border-radius: 10px 10px 0 0;
+    -webkit-border-radius: 10px 10px 0 0;
+    -moz-border-radius: 10px 10px 0 0;
 }
 
 p {
@@ -52,7 +50,6 @@ p {
 label {
     margin: 3px 0;
     font-size: 90%;
-    /*font-weight: bolder;*/
     font-weight: 400;
     display: block;
 }
@@ -69,13 +66,12 @@ input {
     font-size: 11px;
     background-color: #fff;
     color: #2e2924;
-    
-    /* Border radius */
     border-radius: 5px;
+    -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
 }
 
-input:hover {
+input:hover, input:focus {
     border: 1px solid #76a83a;
 }
 
@@ -92,10 +88,12 @@ input.submit {
     padding: 3px 7px;
     cursor: pointer;
     background-color: #76a83a;
-    font-weight: 600;
+    font-weight: bold;
     color: #e5e5e5;
     border: none;
-    border-radius: 5px; 
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
 }
 
 input.submit:hover {
@@ -106,19 +104,16 @@ input.submit:hover {
 #dialog {
     margin: 100px auto 0 auto;
     background: #fff;
-    color: #222;
-    /*border: 3px solid #123;*/
+    color: #2e2924;
     padding: 10px;
     width: 332px;
     text-align: left;
-    
-    /* Border radius and shadows */
     border-radius: 10px;
+    -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
-    
-    -moz-box-shadow: 0px 3px 5px 3px #888;
-    -webkit-box-shadow: 0px 3px 5px 3px #888;
-    box-shadow: 0px 3px 5px 3px #888;
+    box-shadow: 3px 3px 5px 2px #888;
+    -webkit-box-shadow: 3px 3px 5px 2px #888;
+    -moz-box-shadow: 3px 3px 5px 2px #888;
 }
 
 /* Login dialog ----------------------------------------------------------- */
