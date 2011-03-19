@@ -19,14 +19,13 @@
  * @license http://www.gnu.org/licenses/gpl.html GPLv3 license
  */
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!doctype html>
+<html lang="en">
     <head>
+        <meta charset="utf-8" />
         <title><?php echo __('Login').' - '.Setting::get('admin_title'); ?></title>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <link href="<?php echo URI_PUBLIC; ?>wolf/admin/themes/<?php echo Setting::get('theme'); ?>/login.css" id="css_theme" media="screen" rel="Stylesheet" type="text/css" />
-        <script type="text/javascript" charset="utf-8" src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/jquery-1.4.2.min.js"></script>
+        <link href="<?php echo URI_PUBLIC; ?>wolf/admin/themes/<?php echo Setting::get('theme'); ?>/login.css" id="css_theme" media="screen" rel="stylesheet" type="text/css" />
+        <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/jquery-1.4.2.min.js"></script>
         <script type="text/javascript">
             // <![CDATA[
             $(document).ready(function() {
@@ -73,7 +72,7 @@
                                 <input id="login-redirect" type="hidden" name="login[redirect]" value="<?php echo $redirect; ?>" />
                                 <label class="checkbox" for="login-remember-me"><?php echo __('Remember me for 30 minutes.'); ?></label>
                             </div>
-                            <div id="login_submit">
+                            <div id="login-submit">
                                 <input class="submit" type="submit" accesskey="s" value="<?php echo __('Login'); ?>" />
                                 <span>(<a href="<?php echo get_url('login/forgot'); ?>"><?php echo __('Forgot password?'); ?></a>)</span>
                             </div>
