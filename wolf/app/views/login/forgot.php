@@ -19,12 +19,17 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title><?php echo __('Forgot password'); ?></title>
-        <base href="<?php echo trim(BASE_URL, '?/').'/'; ?>" />
         <meta charset="utf-8" />
-        <link href="<?php echo URI_PUBLIC; ?>wolf/admin/themes/<?php echo Setting::get('theme'); ?>/login.css" id="css_theme" media="screen" rel="stylesheet" type="text/css" />
+        <title><?php echo __('Forgot password'); ?></title>
+
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        
+        <base href="<?php echo trim(BASE_URL, '?/').'/'; ?>" />        
+        <link href="<?php echo URI_PUBLIC; ?>wolf/admin/themes/<?php echo Setting::get('theme'); ?>/login.css" media="screen" rel="stylesheet" type="text/css" />
         <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/jquery-1.4.2.min.js"></script>
-        <script type="text/javascript">
+        <script>
             // <![CDATA[
             $(document).ready(function() {
                 (function showMessages(e) {
@@ -44,7 +49,7 @@
         </script>
     </head>
     <body>
-        <div id="dialog">
+        <section id="dialog">
             <h1><?php echo __('Forgot password'); ?></h1>
             <?php if (Flash::get('error') !== null): ?>
             <div id="error" class="message" style="display: none;"><?php echo Flash::get('error'); ?></div>
@@ -65,7 +70,7 @@
                     <span>(<a href="<?php echo get_url('login'); ?>"><?php echo __('Login'); ?></a>)</span>
                 </div>
             </form>
-        </div>
+        </section>
         <p><?php echo __('website:').' <a href="'.URL_PUBLIC.'">'.Setting::get('admin_title').'</a>'; ?></p>
     </body>
 </html>

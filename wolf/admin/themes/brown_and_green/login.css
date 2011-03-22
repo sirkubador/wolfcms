@@ -107,6 +107,7 @@ input.submit:hover {
     color: #2e2924;
     padding: 10px;
     width: 332px;
+    display: block;
     text-align: left;
     border-radius: 10px;
     -webkit-border-radius: 10px;
