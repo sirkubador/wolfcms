@@ -27,7 +27,7 @@ h1 a { color: #fff; }
 header {
     color: #fff;
     background-color: #2E2924; /* #483E37; */
-    border-bottom: 4px solid #76A83A;
+    border-bottom: 4px solid #2D5FB0; /*#66AADD; /*#08A8C5; /*#76A83A;*/
 }
 
 header a { color: #fff; }
@@ -39,7 +39,7 @@ header ul li {
 /* NAVIGATIONAL decorations */
 nav ul li a:hover {
     color: #123;
-    background-color: #76A83A;
+    background-color: #2D5FB0; /*#66AADD; /*#08A8C5; /*#76A83A;*/
 }
 
 nav ul li a:link, nav ul li a:visited {
@@ -55,8 +55,8 @@ nav ul li a:link, nav ul li a:visited {
 }
 
 nav ul li.current a {
-    color: #123;
-    background-color: #76A83A;
+    color: #fff; /* #123; */
+    background-color: #2D5FB0; /*#66AADD; /*#08A8C5; /*#76A83A;*/
 }
 
 /* CONTENT decorations */
@@ -124,7 +124,7 @@ nav ul li.current a {
 
 #sidebar p.button {
     margin-bottom: 1.25em;
-    background: #76A83A; /*#59c;*/
+    background: #2D5FB0; /*#66AADD; /*#08A8C5; /*#76A83A; /*#59c;*/
 
     border-radius: 6px;
     -moz-border-radius: 6px;
@@ -190,7 +190,7 @@ a#site-view-link:visited { color: #fff; }
 
 a#site-view-link {
     color: #fff;
-    background-color: #76A83A; /*#a28c6a;*/
+    background-color: #2D5FB0; /*#66AADD; /*#08A8C5; /*#76A83A; /*#a28c6a;*/
 
     border-radius: 3px;
     -moz-border-radius: 3px;
