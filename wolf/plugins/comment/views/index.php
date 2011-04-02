@@ -26,7 +26,7 @@ if (!defined('IN_CMS')) { exit(); }
 ?>
 
 <h1><?php echo __('Comments'); ?></h1>
-<div id="comments-def">
+<div id="comments-def" class="index-def">
     <div class="comment"><?php echo __('Comments'); ?></div>
     <div class="modify"><?php echo __('Modify'); ?></div>
 </div>
@@ -58,7 +58,7 @@ if($comments_count <= $rowspage) { $lastpage = 0; } else { $lastpage = abs($last
 ?>
 <?php
 if ($comments_count > 0) { ?>
-<ol id="comments">
+<ul id="comments">
     <?php while ($comment = $stmt->fetchObject()): ?>
     <li class="<?php echo odd_even(); ?> moderate">
           <strong><?php if ($comment->author_link != '') {
@@ -82,7 +82,7 @@ __('Delete'); ?></a> | <?php if ($comment->is_approved): ?>
           </div>
       </li>
 <?php endwhile; ?>
-</ol>
+</ul>
 <?php
 } else {
     echo '<h3>'.__('No comments found.').'</h3>';

@@ -77,13 +77,7 @@ a#site-view-link:hover {
 #success { background: #cfc; color: #051; }
 
 /* Index table ------------------------------------------------------------ */
-table.index { border-color: #ddd; }
-table.index th { background-color: #f5f5f5; }
-table.index td { border-color: #ddd; }
-table.index .node .user small { color: #666; }
-table.index .even:hover, table.index .odd:hover, table.index .even.hover, table.index .odd.hover { background-color: #f5f5f5;}
-table.index .node .snippet a, table.index .node .snippet a:visited, table.index .node .layout a, table.index .node .layout a:visited, table.index .node .user a, table.index .node .user a:visited { color: #000;}
-table.index td.note { color: silver; }
+
 
 /* Site Map --------------------------------------------------------------- */
 #site-map-root .page a .title, #site-map .page a .title, #site-map .node .page a:visited .title { color: #000; }
@@ -99,14 +93,6 @@ table.index td.note { color: silver; }
 #site-map .status.hidden-stats { color: #0c0; }
 
 /* Form Elements ---------------------------------------------------------- */
-.form-area { background-color: #ddd; }
-.form-area .error-with-field .error { color: #f00; }
-.form-area .pages .title { padding: 10px 0px 19px 0px; }
-table.fieldset td { background-color: white; border-color: #ccc; }
-table.fieldset td.label .optional { color: #929488; }
-table.fieldset td.help { background-color: #eee; }
-table.fieldset .error-with-field small { color: red; }
-form fieldset { margin-top: 1em; }
 
 /* Tabs ------------------------------------------------------------------- */
 #tabs-meta .tab a, #tabs .tab a { background-color: #e5e5e5; color: #000; }

@@ -36,25 +36,14 @@
 <?php endforeach; ?>
 </ul>
 
-<style type="text/css" >
-    .placeholder {
-        height: 2.4em;
-        line-height: 1.2em;
-        border: 1px solid #fcefa1;
-        background-color: #fbf9ee;
-        color: #363636;
-    }
-</style>
-
 <script type="text/javascript">
 // <![CDATA[
     jQuery.fn.sortableSetup = function sortableSetup() {
         this.sortable({
             disabled:true,
             tolerance:'intersect',
-       		containment:'#main',
+       		containment:'#page-content',
        		placeholder:'placeholder',
-       		revert: true,
             handle: '.handle',
             cursor:'crosshair',
        		distance:'15',

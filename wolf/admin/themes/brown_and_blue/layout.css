@@ -1,0 +1,127 @@
+/*
+ * Layout CSS is considered to be:
+ *     margin, padding, float, width, height, display, position, top, left,
+ *     right, bottom, float, align, vertical-align and similar codes.
+ */
+
+/* GENERIC layout */
+.right {
+    float: right;
+}
+
+.placeholder {
+    height: 0.5em;
+}
+
+.clearer {
+	clear: both;
+	display: block;
+        /* these are special since no text should be in .clearer */
+	font-size: 0;
+	height: 0;
+	line-height: 0;
+}
+
+/* HEADER layout */
+header {
+    display: block;
+    height: 100px;
+}
+
+header div#logo {
+    padding-top: 19px;
+    padding-left: 20px;
+}
+
+header ul li {
+    display: inline;
+}
+
+/* NAVIGATIONAL layout */
+nav ul { padding: 0em 1.5em; }
+
+nav ul li {
+    position: relative;
+    top: -28px;
+    float: left;
+    margin-right: 5px;
+}
+
+nav ul li a:link, nav ul li a:visited {
+    padding: 6px 8px 5px 8px;
+}
+
+nav .counter { display: none; }
+
+/* CONTENT layout */
+#content {
+    margin: 1em 2em 0em 1.5em;
+}
+
+#page-content { display: block; }
+
+/* SIDEBAR layout */
+.use-sidebar #page-content { width: 67%; }
+
+#sidebar {
+    display: block;
+    width: 30%;
+}
+
+.use-sidebar.sidebar-at-side1 #page-content, .use-sidebar.sidebar-at-side2 #sidebar { float: right; }
+.use-sidebar.sidebar-at-side2 #page-content, .use-sidebar.sidebar-at-side1 #sidebar { float: left; }
+
+#page-content h1 {
+    padding: 10px 20px;
+}
+
+#sidebar h2 {
+    margin: 0;
+    padding: 0 0 5px 0;
+}
+
+#sidebar .box {
+    margin-bottom: 10px;
+    padding: 10px 20px;
+}
+
+#sidebar p.button {
+    margin: 0 0 10px;
+    padding: 10px 20px 0;
+}
+
+#sidebar p.button img {
+    margin: -10px 10px 0 -20px;
+    padding: 6px 10px;
+}
+
+/* FOOTER layout */
+footer {
+    display: block;
+    clear: both;
+    margin: 2em 2em 0em 2em;
+}
+
+/* USER CONTROLS layout */
+#user-controls {
+    margin: 0;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+}
+
+a#site-view-link {
+    padding: 0.2em 0.4em;
+    vertical-align: middle;
+}
+
+/* SNIPPETS & LAYOUT INDEX layout */
+/*#page-content ul#snippets li, #page-content ul#layouts li {
+    padding: 0.4em 0;
+}*/
+#page-content ul li {
+    padding: 0.4em 0;
+}
+#page-content ul#snippets .handle, #page-content ul#layouts .handle { display: none; vertical-align: middle; margin-left: 0.5em; }
+#page-content ul#comments li div, #page-content ul#snippets li div, #page-content ul#layouts li div { display: inline-block; float: right; }
+#page-content ul#snippets li img, #page-content ul#layouts img { vertical-align: middle; }

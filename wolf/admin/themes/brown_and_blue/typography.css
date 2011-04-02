@@ -1,0 +1,71 @@
+/*
+ * Typography CSS is considered to be:
+ *     font-size, font-family, text-shadow, line-height, and similar codes.
+ */
+
+/* GENERIC typography */
+html {
+    font-size: 100%; /*95%;*/
+    font-family: "Lucida Grande", "Bitstream Vera Sans", "Helvetica", "Verdana", "Arial", sans-serif;
+}
+
+h1 {
+    text-shadow: -1px 2px 3px #111;
+}
+
+/* HEADER typography */
+header a { text-decoration: none; }
+header a:hover { text-decoration: underline; }
+header div#logo {
+    font-size: 150%;
+    font-weight: bold;
+    text-shadow: -1px 2px 3px #111;
+}
+
+/* NAVIGATIONAL typography */
+nav ul li a:link, nav ul li a:visited {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: normal;
+    text-decoration: none !important;
+}
+
+nav ul li.current a {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* CONTENT typography */
+#content h1 {
+    text-shadow: -1px 2px 3px #111;
+    font-size: 1.5em;
+}
+
+/* SIDEBAR typography */
+#sidebar h2 {
+    font-size: 15px;
+    text-shadow: -1px 2px 2px #ddd;
+}
+
+#sidebar p, #sidebar td, #sidebar th {
+    font-size: .83em;
+}
+
+#sidebar p.button a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* FOOTER typography */
+footer {
+    font-size: 80%;
+}
+
+footer .stats { 
+    font-size: 90%;
+}
+
+/* USER CONTROLS typography */
+#user-controls {
+    font-size: 70%;
+}

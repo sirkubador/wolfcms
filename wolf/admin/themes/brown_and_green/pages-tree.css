@@ -1,0 +1,124 @@
+/* THIS NEEDS SIMPLIFYING AND IMPROVING */
+
+#site-map-def, #site-map-root, #site-map, #page-content ul, #page-content table,
+#page-content p, #page-content h2, #page-content h3, #page-content h4,
+#page-content h5, #page-content h6 {
+    margin: 1em;
+}
+
+#site-map-def { margin-bottom: 0em; }
+#site-map-root { margin-bottom: 1em; }
+
+#site-map-root .node.level-0 .page,
+#site-map .node.level-1 .page,
+#site-map .node.level-2 .page {
+    font-size: 120%;
+    font-weight: bold;
+}
+#site-map .node.level-1 .page { margin-left: 10px; }
+#site-map .node.level-2 .page { font-size: 115%; margin-left: 40px; }
+#site-map .node.level-3 .page { font-size: 110%; margin-left: 70px; }
+#site-map .node.level-4 .page { font-size: 105%; margin-left: 100px; }
+#site-map .node.level-5 .page { margin-left: 130px; }
+#site-map .node.level-6 .page { margin-left: 160px; }
+#site-map .node.level-7 .page { margin-left: 190px; }
+#site-map-root .node .page a,
+#site-map .node .page a {
+    text-decoration: none;
+}
+#site-map-root .page a .title,
+#site-map .page a .title,
+#site-map .node .page a:visited .title {
+    color: #000;
+    text-decoration: none;
+}
+#site-map .node .page .title.protected {
+    color: #9eb3bf;
+}
+#site-map-root .node .page a:hover .title,
+#site-map .node .page a:hover .title,
+#site-map .node .page a:visited:hover .title {
+    text-decoration: underline;
+}
+#site-map .node .page .info {
+    color: #9eb3bf;
+    font-style: italic;
+    font-weight: normal;
+}
+#site-map .no-children .w1 { padding-left: 23px; }
+#site-map-root .page .title,
+#site-map .page .title,
+#site-map .page .info {
+    position: relative;
+    top: 5px;
+}
+.site-map-placeholder {
+    height: 30px;
+    background-color: #eee;
+    margin: 0px;
+}
+#site-map .page img.expander {
+    padding: 3px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+#site-map-def { margin-top: 20px; position: relative; }
+#site-map-def .page {}
+#site-map-def .status { position: absolute; text-align: center; top: 0; right: 175px; width: 100px }
+#site-map-def .view { position: absolute; text-align: center; top: 0; right: 100px; width: 75px }
+#site-map-def .modify { position: absolute; text-align: center; top: 0; right: 5px; width: 85px; }
+#site-map-def .tag { position: absolute; top: 0; right: 375px; width: 150px; }
+#site-map-def div {
+    padding: 2px 0px;
+    font-size: 90%;
+    font-weight: normal;
+    background-color: #f5f5f5;
+}
+#site-map-root {
+    font-size: 90%;
+}
+#site-map {
+    border-bottom: 1px solid #ddd;
+    font-size: 90%;
+}
+#site-map-root li,
+#site-map li {
+    padding: 2px 0;
+    position: relative;
+    border-top: 1px solid #ddd;
+}
+#site-map-root li:hover {
+    background-color: #ffffff;
+}
+#site-map-root #page-0 .page:hover,
+#site-map-root li.hover,
+#site-map li:hover,
+#site-map li.hover {
+    background-color: #f5f5f5;
+}
+#site-map ul { list-style: none; margin:0; padding:0; background: #fff; }
+#site-map .status, #site-map-root .status { position: absolute; text-align: center; top: 10px; right: 175px; width: 100px }
+#site-map .view-page, #site-map-root .view-page { position: absolute; text-align: center; top: 10px; right: 100px; width: 75px }
+#site-map .modify, #site-map-root .modify { position: absolute; text-align: center; top: 10px; right: 7px; width: 85px }
+#site-map .modify img, #site-map-root .modify img {vertical-align: middle;}
+#site-map .status { color: #9eb3bf; }
+#site-map .status.draft-status { color: #c00; }
+#site-map .status.published-status { color: #000; }
+#site-map .status.hidden-stats { color: #0c0; }
+
+
+ul#site-map-root {
+    margin-top: 0;
+    order: 0;
+}
+
+ul#site-map-root {
+    padding: 0px 2px;
+}
+
+ul#site-map {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
