@@ -109,10 +109,10 @@ if (isset($this->vars['content_for_layout']->vars['action'])) {
 
                     <?php if (AuthUser::hasPermission('administrator')): ?>
                 <ul class="right">
-                    <li<?php if ($ctrl == 'setting' && $action == 'plugin')
-                            echo ' class="current"'; ?>><a href="<?php echo get_url('setting/plugin'); ?>"><?php echo __('Plugins'); ?></a></li>
                     <li<?php if ($ctrl == 'setting' && $action != 'plugin')
                         echo ' class="current"'; ?>><a href="<?php echo get_url('setting'); ?>"><?php echo __('Settings'); ?></a></li>
+                    <li<?php if ($ctrl == 'setting' && $action == 'plugin')
+                            echo ' class="current"'; ?>><a href="<?php echo get_url('setting/plugin'); ?>"><?php echo __('Plugins'); ?></a></li>
                     <li<?php if ($ctrl == 'user')
                 echo ' class="current"'; ?>><a href="<?php echo get_url('user'); ?>"><?php echo __('Users'); ?></a></li>
                 </ul>

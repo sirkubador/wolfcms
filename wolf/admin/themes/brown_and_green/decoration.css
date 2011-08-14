@@ -240,3 +240,41 @@ a#site-view-link:hover {
     height: 45px;
     border-top: 1px solid #e5e5e5;
 }
+
+/* Plugins tables */
+#plugins th, #plugins td {
+    text-align: center;
+}
+#plugins tbody td.plugin h4 {
+    margin-left: 0.83em;
+}
+#plugins tbody td.plugin {
+    padding: 0;
+}
+#plugins th.plugin, #plugins td.plugin {
+    text-align: left;
+}
+#plugins .disabled td {
+	color: #a22;
+}
+#plugins td .notes {
+	padding: 2px 5px;
+	border: 1px solid #ddd;
+	background-color: #eee;
+	color: #222;
+}
+.plugin .from {
+	color: #999;
+}
+
+
+/* FORMS */
+form#settings table.fieldset td.label .optional {
+  color: #929488;
+}
+form#settings table.fieldset td.help {
+  background-color: #eee;
+}
+form#settings .error-with-field .error {
+  color: #f00;
+}

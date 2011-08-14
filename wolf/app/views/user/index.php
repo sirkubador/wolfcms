@@ -16,7 +16,7 @@
  * @license http://www.gnu.org/licenses/gpl.html GPLv3 license
  */
 ?>
-<h1><?php echo __('Users'); ?></h1>
+<h1><?php echo __('Administration').' - '.__('Users'); ?></h1>
 
 <table id="users" class="index" cellpadding="0" cellspacing="0" border="0">
   <thead>

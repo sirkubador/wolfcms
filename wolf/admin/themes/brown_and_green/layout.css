@@ -125,3 +125,60 @@ a#site-view-link {
 #page-content ul#snippets .handle, #page-content ul#layouts .handle { display: none; vertical-align: middle; margin-left: 0.5em; }
 #page-content ul#comments li div, #page-content ul#snippets li div, #page-content ul#layouts li div { display: inline-block; float: right; }
 #page-content ul#snippets li img, #page-content ul#layouts img { vertical-align: middle; }
+
+
+/* FORMS */
+form#settings {
+  padding-bottom: 0.8em;
+}
+form#settings table.fieldset td.label {
+  padding-top: 10px;
+  vertical-align: top;
+  text-align: right;
+  width: 20%;
+}
+form#settings table.fieldset td.help {
+  padding-left: 10px;
+  width: 40%;
+}
+form#settings h3 {
+  margin-bottom: 0;
+  margin: 0;
+}
+form#settings p {
+  margin-top: 0;
+}
+form#settings .textbox {
+  width: 100%;
+}
+form#settings .title label {
+  display: block;
+}
+form#settings .title .textbox {
+  width: 100%;
+}
+form#settings .content {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+form#settings .row {
+  clear: both;
+  margin-top: 1em;
+}
+form#settings .row p,
+form#settings .row .fieldset {
+  float: left;
+  margin-right: 2em;
+  margin-bottom: 1em;
+}
+form#settings .fieldset {
+  margin-right: .5em;
+}
+form#settings .fieldset td {
+  padding: 0.5em;
+}
+form#settings .error-with-field .error {
+  display: block;
+  padding: 2px;
+  padding-top: 0;
+}

@@ -69,3 +69,54 @@ footer .stats {
 #user-controls {
     font-size: 70%;
 }
+
+
+/* Plugins tables */
+thead th {
+    font-weight: normal;
+}
+#plugins tbody td.plugin h4 {
+	font-weight: bold;
+    font-size: 1.2em;
+}
+#plugins thead th {
+    font-size: 0.9em;
+}
+#plugins tbody td {
+	font-size: .83em;
+}
+#plugins td .notes {
+	font-size: .83em;
+}
+#plugins tbody td.plugin .from {
+	font-size: .83em;
+	font-weight: normal;
+}
+
+/* FORMS */
+form#settings .small {
+  font-size: 75%;
+}
+form#settings .label {
+  font-weight: bold;
+}
+form#settings table.fieldset td.help {
+  font-size: 80%;
+}
+form#settings h3 {
+  font-size: 100%;
+  font-weight: bold;
+}
+form#settings small {
+  font-size: 75%;
+}
+form#settings label {
+  font-weight: bold;
+}
+form#settings .textbox {
+  font-size: 100%;
+}
+form#settings .title .textbox {
+  font-family: Georgia, Palatino, "Times New Roman", Times, serif;
+  font-size: 170%;
+}
