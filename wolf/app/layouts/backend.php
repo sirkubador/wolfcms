@@ -78,7 +78,7 @@ if (isset($this->vars['content_for_layout']->vars['action'])) {
             <ul id="user-controls">
                 <li><?php echo __('You are currently logged in as'); ?> <a href="<?php echo get_url('user/edit/' . AuthUser::getId()); ?>"><?php echo AuthUser::getRecord()->name; ?></a> | </li>
                 <li><a href="<?php echo get_url('login/logout'); ?>"><?php echo __('Logout'); ?></a> | </li>
-                <li><a id="site-view-link" href="http://localhost/073/" target="_blank"><?php echo __('View Site'); ?></a></li>
+                <li><a id="site-view-link" href="<?php echo URL_PUBLIC; ?>" target="_blank"><?php echo __('View Site'); ?></a></li>
             </ul>
         </header>
 

@@ -9,6 +9,8 @@ Sigla:
 
 0.x.x - released ??
 
++ Added Arabic language file for core. - thanks hashemgamal
++ Added RTL version of default look-and-feel - thanks hashemgamal
 + Added Polish language files. Thanks tikky.
 + Added Japanese language files. Translations need to be checked by native speaker.
 + Added Indonesian language files for core plugins - thanks Devi
@@ -30,6 +32,8 @@ Sigla:
 - Fixed index already exists bug on upgrade for SQLite DBs
 - Fixed Email helper to prevent safe mode warning - thanks realslacker
 - Fixed small typo in User model preventing updated by info being updated
+- Fixed missing "ç" for toSlug() function in js
+. Modified default slugs to use hyphen on install instead of underscore
 . Plugin's require_wolf_version entry now compared to Wolf's version using PHP's version_compare function - issue 267
 . Changed CSRF token timeout from 5 to 15 minutes
 . Made sure add part form has emtpy title field when adding multiple parts - issue 306
