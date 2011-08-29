@@ -632,6 +632,37 @@ class Record {
 
         return $return;
     }
+    
+
+    /**
+     * Effectively does a TRUNCATE TABLE command on the Record's table.
+     * 
+     * Please note: this command might fail if the table has child tables that
+     * are dependent on the parent. Usually though, if the child table makes use
+     * of ON CASCADE, the child entries will simply also be deleted.
+     * 
+     * A TRUNCATE TABLE, when possible to use, will usually be much faster than
+     * a regular DELETE FROM command.
+     *
+     * @return mixed False if the command failed, otherwise number of effected rows.
+     */
+    public function deleteAll() {
+        $outcome = false;
+        $pdo = self::getConnection();
+        $driver = $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
+        
+        if ($driver == 'mysql' || $driver == 'pgsql') {
+            $sql = 'TRUNCATE '.self::tableNameFromClassName(get_class($this));
+        }
+        
+        if ($driver == 'sqlite') {
+            $sql = 'DELETE FROM '.self::tableNameFromClassName(get_class($this));
+        }
+        
+        $outcome = $pdo->exec($sql);
+        
+        return $outcome;
+    }
 
     /**
      * Allows sub-classes do stuff before a Record is saved.
