@@ -655,6 +655,7 @@ class Record {
             $sql = 'TRUNCATE '.self::tableNameFromClassName(get_class($this));
         }
         
+        // TODO add VACUUM command for sqlite?
         if ($driver == 'sqlite') {
             $sql = 'DELETE FROM '.self::tableNameFromClassName(get_class($this));
         }
