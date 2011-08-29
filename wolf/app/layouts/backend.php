@@ -52,6 +52,13 @@ if (isset($this->vars['content_for_layout']->vars['action'])) {
         <link rel="shortcut icon" href="/admin/themes/<?php echo Setting::get('theme'); ?>/favicon.ico" type="image/vnd.microsoft.icon" />
         <link rel="stylesheet" href="<?php echo URI_PUBLIC; ?>wolf/admin/themes/<?php echo Setting::get('theme'); ?>/screen.css" media="screen" type="text/css" />
 
+        <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/cp-datepicker.js"></script>
+        <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/wolf.js"></script>
+        <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/jquery-1.4.2.min.js"></script> 
+        <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/jquery-ui-1.8.5.custom.min.js"></script>
+        <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/jquery.ui.nestedSortable.js"></script>
+        <script src="<?php echo URI_PUBLIC; ?>wolf/admin/markitup/jquery.markitup.js"></script>
+
 <?php foreach(Plugin::$plugins as $plugin_id => $plugin): ?>
 <?php if (file_exists(CORE_ROOT . '/plugins/' . $plugin_id . '/' . $plugin_id . '.js')): ?>
 <script type="text/javascript" charset="utf-8" src="<?php echo URI_PUBLIC; ?>wolf/plugins/<?php echo $plugin_id.'/'.$plugin_id; ?>.js"></script>
@@ -64,13 +71,6 @@ if (isset($this->vars['content_for_layout']->vars['action'])) {
 <script type="text/javascript" charset="utf-8" src="<?php echo URI_PUBLIC; ?>wolf/plugins/<?php echo $javascript; ?>"></script>
 <?php endforeach; ?>
         
-        <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/cp-datepicker.js"></script>
-        <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/wolf.js"></script>
-        <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/jquery-1.4.2.min.js"></script> 
-        <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/jquery-ui-1.8.5.custom.min.js"></script>
-        <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/jquery.ui.nestedSortable.js"></script>
-        <script src="<?php echo URI_PUBLIC; ?>wolf/admin/markitup/jquery.markitup.js"></script>
-
     </head>
     <body>
         <header>

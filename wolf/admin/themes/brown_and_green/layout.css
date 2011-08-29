@@ -85,6 +85,10 @@ nav .counter { display: none; }
     padding: 10px 20px;
 }
 
+#sidebar p {
+    margin: 0.8em;    
+}
+
 #sidebar p.button {
     margin: 0 0 10px;
     padding: 10px 20px 0;
