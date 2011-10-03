@@ -3,3 +3,27 @@
 @import url('typography.css');
 @import url('decoration.css');
 @import url('pages-tree.css');
+
+.avatar {
+    vertical-align: middle;
+}
+
+form.user {
+    margin-right: 11em;
+}
+
+form.user aside {
+    float: left;
+    margin: 1em;
+}
+
+form.user aside p#username {
+    margin-top: 1em;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+form.user .buttons {
+    padding-bottom: 1em;
+}
