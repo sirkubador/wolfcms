@@ -1,8 +1,7 @@
 <?php
 /*
  * Wolf CMS - Content Management Simplified. <http://www.wolfcms.org>
- * Copyright (C) 2009-2010 Martijn van der Kleijn <martijn.niji@gmail.com>
- * Copyright (C) 2008 Philippe Archambault <philippe.archambault@gmail.com>
+ * Copyright (C) 2011 Martijn van der Kleijn <martijn.niji@gmail.com>
  *
  * Please see license.txt for the full license text.
  */
@@ -10,27 +9,28 @@
 /**
  * Simple Email library
  *
- * Permits email to be sent using Mail, Sendmail, or SMTP.
- *
- * LICENSE: see license.txt and exception.txt for the full license texts.
+ * Permits email to be sent using Mail, Sendmail, or SMTP. Helper originally
+ * taken from codeigniter. Some additional code added/corrected.
  *
  * @package    Helpers
+ * 
+ * @author      ExpressionEngine Dev Team
+ * @copyright   Copyright (c) 2008 - 2011, EllisLab, Inc.
+ * @license     http://codeigniter.com/user_guide/license.html
  *
- * @author     Philippe Archambault <philippe.archambault@gmail.com>
  * @author     Martijn van der Kleijn <martijn.niji@gmail.com>
- * @copyright  2008-2010 Martijn van der Kleijn, Philippe Archambault
+ * @copyright  2011, Martijn van der Kleijn
  * @license    http://www.wolfcms.org/about/wolf-cms-licensing.html
- * @version    SVN: $Id$
- * @since      Available since release 0.0.1
  */
+
+define('EMAIL_FORMAT', '/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix');
 
 /**
  * Permits email to be sent using Mail, Sendmail, or SMTP.
  *
  * Note: some values are hardcoded at the moment.
  */
-class Email {
-
+class Email {  
     public $useragent      = "Wolf framework";
     public $mailpath       = "/usr/sbin/sendmail"; // Sendmail path
     public $protocol       = "mail";   // mail/sendmail/smtp

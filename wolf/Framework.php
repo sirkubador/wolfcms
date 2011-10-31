@@ -110,7 +110,6 @@ final class Dispatcher {
      */
     public static function addRoute($route, $destination=null) {
         if ($destination != null && !is_array($route)) {
-        //if (!is_array($route)) {
             $route = array($route => $destination);
         }
         self::$routes = array_merge(self::$routes, $route);
@@ -126,11 +125,14 @@ final class Dispatcher {
         if (!self::$routes || count(self::$routes) == 0) {
             return false;
         }
+        
+        // Make sure we strip trailing slashes in the requested url
+        $requested_url = rtrim($requested_url, '/');
 
         foreach (self::$routes as $route => $uri) {
             // Convert wildcards to regex
             if (strpos($route, ':') !== false) {
-                $route = str_replace(':any', '(.+)', str_replace(':num', '([0-9]+)', $route));
+                $route = str_replace(':any', '([^/]+)', str_replace(':num', '([0-9]+)', str_replace(':all', '(.+)', $route)));
             }
 
             // Does the regex match?
@@ -190,6 +192,9 @@ final class Dispatcher {
         if (strpos($requested_url, '/') !== 0) {
             $requested_url = '/' . $requested_url;
         }
+        
+        // Make sure we strip trailing slashes in the requested url
+        $requested_url = rtrim($requested_url, '/');
 
         self::$requested_url = $requested_url;
 
@@ -214,7 +219,7 @@ final class Dispatcher {
         foreach (self::$routes as $route => $uri) {
         // Convert wildcards to regex
             if (strpos($route, ':') !== false) {
-                $route = str_replace(':any', '(.+)', str_replace(':num', '([0-9]+)', $route));
+                $route = str_replace(':any', '([^/]+)', str_replace(':num', '([0-9]+)', str_replace(':all', '(.+)', $route)));
             }
             // Does the regex match?
             if (preg_match('#^'.$route.'$#', $requested_url)) {
@@ -1567,7 +1572,7 @@ function redirect($url) {
  * An alias for redirect()
  *
  * @deprecated
- * @param <type> $url
+ * @see redirect()
  */
 function redirect_to($url) {
     redirect($url);
@@ -1727,13 +1732,22 @@ function cleanXSS() {
 /**
  * Displays a "404 - page not found" message and exits.
  */
-function page_not_found() {
-    Observer::notify('page_not_found');
+function pageNotFound($url=null) {
+    Observer::notify('page_not_found', $url);
 
     header("HTTP/1.0 404 Not Found");
     echo new View('404');
     exit;
 }
+
+/**
+ * @deprecated
+ * @see pageNotFound()
+ */
+function page_not_found($url=null) {
+    pageNotFound($url);
+}
+
 
 /**
  * Converts a disk- or filesize number into a human readable format.
@@ -1842,7 +1856,7 @@ function getContentFromUrl($url, $flags=0, $context=false) {
  * @param Exception $e Exception object.
  */
 function framework_exception_handler($e) {
-    if (!DEBUG) page_not_found();
+    if (!DEBUG) pageNotFound();
 
     echo '<style>h1,h2,h3,p,td {font-family:Verdana; font-weight:lighter;}</style>';
     echo '<h1>Wolf CMS - Uncaught '.get_class($e).'</h1>';
