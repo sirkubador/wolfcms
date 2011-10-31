@@ -67,7 +67,7 @@
                     <td class="enabled"><input type="checkbox" name="enabled_<?php echo $plugin->id; ?>" value="<?php echo $plugin->id; ?>"<?php if (isset($loaded_plugins[$plugin->id]))
                 echo ' checked="checked"'; if ($disabled)
                 echo ' disabled="disabled"'; ?> /></td>
-                    <td class="uninstall"><a href="<?php echo get_url('setting'); ?>" name="uninstall_<?php echo $plugin->id; ?>"><?php echo __('Uninstall'); ?></a></td>
+                    <td class="uninstall"><a href="<?php echo get_url('setting/uninstall_plugin/').$plugin->id; ?>" name="uninstall_<?php echo $plugin->id; ?>"><?php echo __('Uninstall'); ?></a></td>
                 </tr>
 <?php endforeach; ?>
         </tbody>
@@ -98,13 +98,14 @@
         });
 
         // Dynamically uninstall
-        $('.uninstall a').click(function() {
+        $('.uninstall a').click(function(e) {
             if (confirm('<?php echo __('Are you sure you wish to uninstall this plugin?'); ?>')) {
                 var pluginId = this.name.replace('uninstall_', '');
                 $.get('<?php echo get_url('setting/uninstall_plugin/'); ?>'+pluginId, function() {
                     location.reload(true);
                 });
             }
+            e.preventDefault();
         });
 
     });
