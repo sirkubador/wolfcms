@@ -173,14 +173,11 @@ $(document).ready(function() {
     if ($('.filter-selector').length > 0) {
         $('.filter-selector').each(function() {
             var $this = $(this);
-            $this.data('oldValue', $this.val());
-
-            if ($this.val() == '') {
-                return true;
-            }
+            var newFilter = $this.val();
+            $this.data('oldValue', newFilter);
             var elemId = $this.attr('id').slice(0, -10);
             var elem = $('#'+elemId+'_content');
-            $this.trigger('wolfSwitchFilterIn', [$this.val(), elem]);
+            $this.trigger('wolfSwitchFilterIn', [newFilter, elem]);
         });
         $('.filter-selector').live('change',function(){
             var $this = $(this);
@@ -189,8 +186,8 @@ $(document).ready(function() {
             $this.data('oldValue', newFilter);
             var elemId = $this.attr('id').slice(0, -10);
             var elem = $('#'+elemId+'_content');
-            $(this).trigger('wolfSwitchFilterOut', [oldFilter, elem]);
-            $(this).trigger('wolfSwitchFilterIn', [newFilter, elem]);
+            $this.trigger('wolfSwitchFilterOut', [oldFilter, elem]);
+            $this.trigger('wolfSwitchFilterIn', [newFilter, elem]);
         });        
     }
     

@@ -49,6 +49,7 @@ if (isset($this->vars['content_for_layout']->vars['action'])) {
         
         <link rel="shortcut icon" href="/admin/themes/<?php echo Setting::get('theme'); ?>/favicon.ico" type="image/vnd.microsoft.icon" />
         <link rel="stylesheet" href="<?php echo URI_PUBLIC; ?>wolf/admin/themes/<?php echo Setting::get('theme'); ?>/screen.css" media="screen" type="text/css" />
+        <link rel="stylesheet" href="<?php echo URI_PUBLIC; ?>wolf/admin/markitup/skins/simple/style.css" type="text/css" />
 
         <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/jquery-1.6.2.min.js"></script> 
         <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/jquery-ui-1.8.5.custom.min.js"></script>

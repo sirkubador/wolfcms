@@ -16,11 +16,15 @@
 	/*width:700px;*/
 	margin:5px 0 5px 0;
 }
+/* removed - mvdkleijn */
+/*
 .markItUpContainer  {
 	font:11px Verdana, Arial, Helvetica, sans-serif;
 }
+*/
 .markItUpEditor {
-	font:12px 'Courier New', Courier, monospace;
+    /* removed font - mvdkleijn */
+	/* font:12px 'Courier New', Courier, monospace;*/
 	padding:5px;
 	width:690px;
 	height:320px;

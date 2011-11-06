@@ -23,7 +23,7 @@
 
 </style>
 
-<form action="<?php echo $action=='edit' ? get_url('layout/edit/'. $layout->id): get_url('layout/add'); ; ?>" method="post">
+<form method="post" action="<?php echo $action=='edit' ? get_url('layout/edit/'. $layout->id): get_url('layout/add'); ; ?>">
     <input id="csrf_token" name="csrf_token" type="hidden" value="<?php echo $csrf_token; ?>" />
     <fieldset>
         <legend><?php echo __('Metadata'); ?></legend>
@@ -47,11 +47,11 @@
         </ol>
     </fieldset>
     <div class="buttons">
-        <?php if (isset($layout->updated_on)) { ?>
         <p id="lastUpdated">
+        <?php if (isset($layout->updated_on)) { ?>
             <?php echo __('Last updated by'); ?> <?php echo $layout->updated_by_name; ?> <?php echo __('on'); ?> <?php echo date('D, j M Y', strtotime($layout->updated_on)); ?>
-        </p>
         <?php } ?>
+        </p>
         <button id="commit" name="commit" type=submit accesskey="s"><?php echo __('Save'); ?></button>
         <button id="continue" name="continue" type=submit accesskey="e"><?php echo __('Save and Continue Editing'); ?></button>
         <?php echo __('or'); ?> <a href="<?php echo get_url('layout'); ?>"><?php echo __('Cancel'); ?></a>
