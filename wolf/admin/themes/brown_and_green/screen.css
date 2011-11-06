@@ -8,22 +8,134 @@
     vertical-align: middle;
 }
 
-form.user {
+form {
+    padding: 1.3em 1.5em;
+    padding-top: 0em;
+}
+
+form fieldset {
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+}
+
+form legend {
+    margin-left: 0.6em;
+    padding: 0em 0.3em;
+}
+
+form ol li {
+    line-height: 1.9em;
+    list-style: none;
+    list-style-position: inside;
+    padding: 0.3em 0.8em;
+    margin-bottom: 2px;
+}
+
+form label {
+    float: left;
+    font-size: 0.9em;
+    width: 8em;
+}
+
+form select {
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    border: solid 1px #cccccc;
+    padding: 0.2em;
+    background-color: #fff;
+}
+
+form textarea {
+    width: 99%;
+    margin: auto 0;
+}
+
+form input:not([type=submit]),
+form textarea {
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    border: solid 1px #cccccc;
+    padding: 0.2em;
+}
+
+form input:not([type=submit]):focus,
+form textarea:focus,
+form select:focus {
+    border: solid 1px #76A83A;
+}
+
+form button {
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #556f8c;
+    -webkit-box-shadow: 2px 2px 3px #999;
+    -khtml-box-shadow: 2px 2px 3px #999;
+    -moz-box-shadow: 2px 2px 3px #999;
+    -o-box-shadow: 2px 2px 3px #999;
+    box-shadow: 2px 2px 3px #999;
+    padding: 0.2em 0.5em;
+    margin: 0 0.3em;
+    cursor: pointer;
+}
+
+form button:hover {
+    -moz-box-shadow: none;
+}
+
+form textarea {
+    font-family: "Courier New", "Courier", sans-serif;
+    font-size: 0.9em;
+    min-height: 20em;
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+#lastUpdated {
+    font-size: 0.8em;
+}
+
+/** SPECIFIC TO USER EDIT SCREEN **/
+
+form#user table {
     margin-right: 11em;
 }
 
 form.user aside {
     float: left;
-    margin: 1em;
+    margin: 1em 1em 1em 0;
+    width: 160px;
 }
 
 form.user aside p#username {
-    margin-top: 1em;
     text-align: center;
     font-weight: bold;
     text-transform: uppercase;
 }
 
-form.user .buttons {
-    padding-bottom: 1em;
+form .help {
+    font-size: 75%;
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+form table ol {
+    display: inline-block;
+    margin: 0; padding: 0;
+}
+
+form table ol li {
+    display: block;
+    margin: 0; padding: 0;
 }
