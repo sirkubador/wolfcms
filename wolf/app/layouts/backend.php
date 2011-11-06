@@ -1,8 +1,7 @@
 <?php
 /*
  * Wolf CMS - Content Management Simplified. <http://www.wolfcms.org>
- * Copyright (C) 2009-2010 Martijn van der Kleijn <martijn.niji@gmail.com>
- * Copyright (C) 2008 Philippe Archambault <philippe.archambault@gmail.com>
+ * Copyright (C) 2009-2011 Martijn van der Kleijn <martijn.niji@gmail.com>
  *
  * This file is part of Wolf CMS. Wolf CMS is licensed under the GNU GPLv3 license.
  * Please see license.txt for the full license text.
@@ -51,12 +50,12 @@ if (isset($this->vars['content_for_layout']->vars['action'])) {
         <link rel="shortcut icon" href="/admin/themes/<?php echo Setting::get('theme'); ?>/favicon.ico" type="image/vnd.microsoft.icon" />
         <link rel="stylesheet" href="<?php echo URI_PUBLIC; ?>wolf/admin/themes/<?php echo Setting::get('theme'); ?>/screen.css" media="screen" type="text/css" />
 
-        <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/cp-datepicker.js"></script>
-        <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/wolf.js"></script>
         <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/jquery-1.6.2.min.js"></script> 
         <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/jquery-ui-1.8.5.custom.min.js"></script>
         <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/jquery.ui.nestedSortable.js"></script>
+        <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/cp-datepicker.js"></script>
         <script src="<?php echo URI_PUBLIC; ?>wolf/admin/markitup/jquery.markitup.js"></script>
+        <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/wolf.js"></script>
 
 <?php foreach(Plugin::$plugins as $plugin_id => $plugin): ?>
 <?php if (file_exists(CORE_ROOT . '/plugins/' . $plugin_id . '/' . $plugin_id . '.js')): ?>
@@ -69,7 +68,7 @@ if (isset($this->vars['content_for_layout']->vars['action'])) {
 <?php foreach(Plugin::$javascripts as $jscript_plugin_id => $javascript): ?>
 <script type="text/javascript" charset="utf-8" src="<?php echo URI_PUBLIC; ?>wolf/plugins/<?php echo $javascript; ?>"></script>
 <?php endforeach; ?>
-        
+
     </head>
     <body>
         <header>
@@ -88,36 +87,53 @@ if (isset($this->vars['content_for_layout']->vars['action'])) {
                 <?php echo __('Pages'); ?> <span class="counter"><?php //echo Record::countFrom('Page') ?></span>
                     </a>
                 </li>
-                <?php if (AuthUser::hasPermission('administrator,developer')): ?>
+                <?php if (AuthUser::hasPermission('snippet_view')): ?>
                 <li<?php if ($ctrl == 'snippet') echo ' class="current"'; ?>>
                     <a href="<?php echo get_url('snippet'); ?>"><?php echo __('Snippets'); ?> <span class="counter"><?php //echo Record::countFrom('Snippet') ?></span></a>
                 </li>
+                <?php endif; ?>
+                <?php if (AuthUser::hasPermission('layout_view')): ?>
                 <li<?php if ($ctrl == 'layout') echo ' class="current"'; ?>>
                     <a href="<?php echo get_url('layout'); ?>"><?php echo __('Layouts'); ?> <span class="counter"><?php //echo Record::countFrom('Layout') ?></span></a>
                 </li>
                 <?php endif; ?>
                 <?php foreach (Plugin::$controllers as $plugin_name => $plugin): ?>
-                    <?php if ($plugin->show_tab && (AuthUser::hasPermission($plugin->permissions) || AuthUser::hasPermission('administrator'))): ?>
+                    <?php if ($plugin->show_tab && (AuthUser::hasPermission($plugin->permissions))): ?>
                         <?php Observer::notify('view_backend_list_plugin', $plugin_name, $plugin); ?>
-                <li <?php if ($ctrl == 'plugin' && $action == $plugin_name) echo ' class="current"'; ?>>
-                    <a href="<?php echo get_url('plugin/' . $plugin_name); ?>"><?php echo __($plugin->label); ?></a>
-                </li>
+                    <li <?php if ($ctrl == 'plugin' && $action == $plugin_name) echo ' class="current"'; ?>>
+                        <a href="<?php echo get_url('plugin/' . $plugin_name); ?>"><?php echo __($plugin->label); ?></a>
+                    </li>
                     <?php endif; ?>
                 <?php endforeach; ?>
             </ul>			
 
-                    <?php if (AuthUser::hasPermission('administrator')): ?>
                 <ul class="right">
-                    <li<?php if ($ctrl == 'setting' && $action != 'plugin')
-                        echo ' class="current"'; ?>><a href="<?php echo get_url('setting'); ?>"><?php echo __('Settings'); ?></a></li>
-                    <li<?php if ($ctrl == 'setting' && $action == 'plugin')
-                            echo ' class="current"'; ?>><a href="<?php echo get_url('setting/plugin'); ?>"><?php echo __('Plugins'); ?></a></li>
-                    <li<?php if ($ctrl == 'user')
-                echo ' class="current"'; ?>><a href="<?php echo get_url('user'); ?>"><?php echo __('Users'); ?></a></li>
+                    <?php if (AuthUser::hasPermission('admin_edit')): ?>
+                    <li<?php if ($ctrl == 'setting' && $action != 'plugin') echo ' class="current"'; ?>>
+                        <a href="<?php echo get_url('setting'); ?>"><?php echo __('Settings'); ?></a>
+                    </li>
+                    <?php endif; ?>
+                    <?php if (AuthUser::hasPermission('admin_edit')): ?>
+                    <li<?php if ($ctrl == 'setting' && $action == 'plugin') echo ' class="current"'; ?>>
+                        <a href="<?php echo get_url('setting/plugin'); ?>"><?php echo __('Plugins'); ?></a>
+                    </li>
+                    <?php endif; ?>
+                    <?php if (AuthUser::hasPermission('user_view')): ?>
+                    <li<?php if ($ctrl == 'user') echo ' class="current"'; ?>>
+                        <a href="<?php echo get_url('user'); ?>"><?php echo __('Users'); ?></a>
+                    </li>
+                    <?php endif; ?>
                 </ul>
-            <?php endif; ?>
         </nav>
-
+<?php if (Flash::get('error') !== null): ?>
+<div id="error" class="message" style="display: none;"><?php echo Flash::get('error'); ?></div>
+<?php endif; ?>
+<?php if (Flash::get('success') !== null): ?>
+<div id="success" class="message" style="display: none"><?php echo Flash::get('success'); ?></div>
+<?php endif; ?>
+<?php if (Flash::get('info') !== null): ?>
+<div id="info" class="message" style="display: none"><?php echo Flash::get('info'); ?></div>
+<?php endif; ?>
         <div id="content" <?php if (isset($sidebar) && trim($sidebar) != '') { echo ' class="use-sidebar sidebar-at-side2"'; } ?>>
             <?php if (isset($section_bar)) { ?>
             <div id="section-bar">
