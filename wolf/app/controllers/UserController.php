@@ -159,7 +159,7 @@ class UserController extends Controller {
 
         if ($user->save()) {
             // now we need to add roles if needed
-            if (!empty($_POST['user_permission']))
+            if (!empty($_POST['user_role']))
                 UserRole::setRolesFor($user->id, $_POST['user_role']);
 
             Flash::set('success', __('User has been added!'));
@@ -246,7 +246,7 @@ class UserController extends Controller {
         // Check alphanumerical fields
         $fields = array('username');
         foreach ($fields as $field) {
-            if (!empty($data[$field]) && !Validate::alphanum_space($data[$field])) {
+            if (!empty($data[$field]) && !Validate::alphanum_space($data[$field], true)) {
                 $errors[] = __('Illegal value for :fieldname field!', array(':fieldname' => $field));
             }
         }

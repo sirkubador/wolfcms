@@ -52,38 +52,37 @@ use_helper('Gravatar');
             <td class="label"><label for="user_password"><?php echo __('Password'); ?></label></td>
             <td class="field"><input class="textbox" id="user_password" maxlength="40" name="user[password]" type="password" value="" /></td>
             <td class="help" rowspan="2"><?php echo __('At least 5 characters.'); ?> <?php
-    if ($action == 'edit') {
-        echo __('Leave password blank for it to remain unchanged.');
-    }
-    ?></td>
+            if ($action == 'edit') {
+                echo __('Leave password blank for it to remain unchanged.');
+            }
+            ?></td>
         </tr>
         <tr>
             <td class="label"><label for="user_confirm"><?php echo __('Confirm Password'); ?></label></td>
 
             <td class="field"><input class="textbox" id="user_confirm" maxlength="40" name="user[confirm]" type="password" value="" /></td>
         </tr>
-<?php if (AuthUser::hasPermission('user_edit')): ?>
+        <?php if (AuthUser::hasPermission('user_edit')): ?>
             <tr>
                 <td class="label"><?php echo __('Roles'); ?></td>
                 <td class="field">
-                            <?php $user_permissions = ($user instanceof User) ? $user->roles() : array(); ?>
-                            <?php foreach ($permissions as $perm): ?>
-                        <span class="checkbox"><input<?php if (in_array($perm->name, $user_permissions))
-                            echo ' checked="checked"'; ?>  id="user_permission-<?php echo $perm->name; ?>" name="user_permission[<?php echo $perm->name; ?>]" type="checkbox" value="<?php echo $perm->id; ?>" />&nbsp;<label for="user_permission-<?php echo $perm->name; ?>"><?php echo __(ucwords($perm->name)); ?></label></span>
-    <?php endforeach; ?>
+                    <?php $user_roles = ($user instanceof User) ? $user->roles() : array(); ?>
+                    <?php foreach ($roles as $role): ?>
+                        <span class="checkbox"><input<?php if (in_array($role->name, $user_roles))
+                    echo ' checked="checked"'; ?>  id="user_role-<?php echo $role->name; ?>" name="user_role[<?php echo $role->name; ?>]" type="checkbox" value="<?php echo $role->id; ?>" />&nbsp;<label for="user_role-<?php echo $role->name; ?>"><?php echo __(ucwords($role->displayname())); ?></label></span>
+                    <?php endforeach; ?>
                 </td>
                 <td class="help"><?php echo __('Roles restrict user privileges and turn parts of the administrative interface on or off.'); ?></td>
             </tr>
-<?php endif; ?>
-
+        <?php endif; ?>
         <tr>
             <td class="label"><label for="user_language"><?php echo __('Language'); ?></label></td>
             <td class="field">
                 <select class="select" id="user_language" name="user[language]">
-                            <?php foreach (Setting::getLanguages() as $code => $label): ?>
-                        <option value="<?php echo $code; ?>"<?php if ($code == $user->language)
-                                echo ' selected="selected"'; ?>><?php echo __($label); ?></option>
-<?php endforeach; ?>
+                    <?php foreach (Setting::getLanguages() as $code => $label): ?>
+                    <option value="<?php echo $code; ?>"<?php if ($code == $user->language)
+                    echo ' selected="selected"'; ?>><?php echo __($label); ?></option>
+                    <?php endforeach; ?>
                 </select>
             </td>
             <td class="help"><?php echo __('This will set your preferred language for the backend.'); ?></td>
@@ -95,7 +94,7 @@ use_helper('Gravatar');
 
     <p class="buttons">
         <input class="button" name="commit" type="submit" accesskey="s" value="<?php echo __('Save'); ?>" />
-<?php echo __('or'); ?> <a href="<?php echo (AuthUser::hasPermission('user_view')) ? get_url('user') : get_url(); ?>"><?php echo __('Cancel'); ?></a>
+        <?php echo __('or'); ?> <a href="<?php echo (AuthUser::hasPermission('user_view')) ? get_url('user') : get_url(); ?>"><?php echo __('Cancel'); ?></a>
     </p>
 
 </form>
