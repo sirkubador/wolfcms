@@ -113,7 +113,8 @@ $PDO->exec("CREATE UNIQUE INDEX permission_name ON permission (name)");
 
 $PDO->exec("CREATE TABLE role (
     id INTEGER NOT NULL PRIMARY KEY,
-    name varchar(25) NOT NULL
+    name varchar(25) NOT NULL,
+    displayname varchar(255) NULL
 )");
 $PDO->exec("CREATE UNIQUE INDEX role_name ON role (name)");
 

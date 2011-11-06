@@ -120,6 +120,7 @@ $PDO->exec("CREATE TABLE ".TABLE_PREFIX."permission (
 $PDO->exec("CREATE TABLE ".TABLE_PREFIX."role (
   id int(11) NOT NULL auto_increment,
   name varchar(25) NOT NULL,
+  displayname varchar(255) NULL,
   PRIMARY KEY  (id),
   UNIQUE KEY name (name)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8");

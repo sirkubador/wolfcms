@@ -123,6 +123,7 @@ $PDO->exec("CREATE TABLE ".TABLE_PREFIX."permission (
 $PDO->exec("CREATE TABLE ".TABLE_PREFIX."role (
   id serial,
   name character varying(25) NOT NULL,
+  displayname character varying(255) NULL,
   PRIMARY KEY (id),
   CONSTRAINT rolename UNIQUE (name)
 )");
