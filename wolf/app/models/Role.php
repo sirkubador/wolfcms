@@ -28,6 +28,7 @@ class Role extends Record {
 
     public $id;
     public $name;
+    public $displayname;
     public $permissions = false;
 
     /**
@@ -41,7 +42,14 @@ class Role extends Record {
      * @return string Name of the role.
      */
     public function  __toString() {
-        return $this->name;
+        return $this->displayname();
+    }
+    
+    public function displayname() {
+        if (!empty($this->displayname))
+            return $this->displayname;
+        else
+            return $this->name;
     }
 
     /**
@@ -119,6 +127,6 @@ class Role extends Record {
      * @return array Array of column names.
      */
     public function getColumns() {
-        return array('id', 'name');
+        return array('id', 'name', 'displayname');
     }
 }
