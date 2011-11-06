@@ -145,11 +145,16 @@ $.fn.sortableSetup = function sortableSetup(itemname) {
     return this;
 };
 
+
 $(document).ready(function() {
     
     var toggle_reorder = false;
-    var toggle_copy = false;
     
+    // Prevent accidentally navigating away
+    $(':input').bind('change', function() { window.onbeforeunload = function() { return wolfLeaveWithoutSaveMsg; }; });
+    $('form').submit(function() { window.onbeforeunload = function() { return null; }; return true; });
+    
+    // Allow showing of system messages
     (function showMessages(e) {
         e.fadeIn('slow')
         .animate({
@@ -163,8 +168,7 @@ $(document).ready(function() {
         })
     })( $(".message:first") );
 
-    $("input:visible:enabled:first").focus();
-    
+    // Filter system
     // Get the initial values and activate filter but only if .filter-selector exists
     if ($('.filter-selector').length > 0) {
         $('.filter-selector').each(function() {
@@ -189,4 +193,7 @@ $(document).ready(function() {
             $(this).trigger('wolfSwitchFilterIn', [newFilter, elem]);
         });        
     }
+    
+    // Place input focus on first enabled input field
+    $("input:visible:enabled:first").focus();
 });

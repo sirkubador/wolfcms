@@ -187,6 +187,7 @@ class SettingController extends Controller {
         echo "var wolfPluginsUri = '".PLUGINS_URI."';\n";
         echo "var wolfIconsUri = '".ICONS_URI."';\n";
         echo "var wolfThemesUri = '".THEMES_URI."';\n";
+        echo "var wolfLeaveWithoutSaveMsg = '".__('You have modified this page. If you navigate away from this page without first saving your data, the changes will be lost.')."'\n";
         exit();
     }
 

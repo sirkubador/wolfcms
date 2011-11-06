@@ -17,9 +17,9 @@
  */
 use_helper('Gravatar');
 ?>
-<h1><?php echo __(ucfirst($action).' user'); ?></h1>
+<h1><?php echo __(':action user', array(':action' => ucfirst($action))); ?></h1>
 
-<form id="settings" class="user" action="<?php echo $action == 'edit' ? get_url('user/edit/'.$user->id) : get_url('user/add'); ?>" method="post">
+<form id="user" class="user" method="post" action="<?php echo $action == 'edit' ? get_url('user/edit/'.$user->id) : get_url('user/add'); ?>">
     <input id="csrf_token" name="csrf_token" type="hidden" value="<?php echo $csrf_token; ?>" />
     <aside>
         <?php echo Gravatar::img($user->email, array('class' => 'avatar'), '160'); ?>
@@ -30,92 +30,106 @@ use_helper('Gravatar');
             <?php echo __('since :date', array(':date' => date('d-m-Y', strtotime($user->created_on)))); ?>
         </p>
     </aside>
-    <table class="fieldset">
+    <table>
         <tr>
-            <td class="label"><label for="user_name"><?php echo __('Name'); ?></label></td>
-            <td class="field"><input class="textbox" id="user_name" maxlength="100" name="user[name]" type="text" value="<?php echo $user->name; ?>" /></td>
-            <td class="help"><?php echo __('Required.'); ?></td>
+            <td>
+                <label for="user_name"><?php echo __('Name'); ?></label>
+            </td>
+            <td>
+                <input id="user_name" name="user[name]" type="text" maxlength="100" value="<?php echo $user->name; ?>" />
+            </td>
+            <td class="help">
+                <?php echo __('Required.'); ?>
+            </td>
         </tr>
         <tr>
-            <td class="label"><label class="optional" for="user_email"><?php echo __('E-mail'); ?></label></td>
-            <td class="field"><input class="textbox" id="user_email" maxlength="255" name="user[email]" type="text" value="<?php echo $user->email; ?>" /></td>
-
-            <td class="help"><?php echo __('Optional. Please use a valid e-mail address.'); ?></td>
+            <td>
+                <label for="user_email"><?php echo __('E-mail'); ?></label>
+            </td>
+            <td>
+                <input id="user_email" name="user[email]" type="text" maxlength="255" value="<?php echo $user->email; ?>" />
+            </td>
+            <td class="help">
+                <?php echo __('Optional. Please use a valid e-mail address.'); ?>
+            </td>
         </tr>
         <tr>
-            <td class="label"><label for="user_username"><?php echo __('Username'); ?></label></td>
-            <td class="field"><input class="textbox" id="user_username" maxlength="40" name="user[username]" type="text" value="<?php echo $user->username; ?>" <?php echo $action == 'edit' ? 'disabled="disabled" ' : ''; ?>/></td>
-            <td class="help"><?php echo __('At least 3 characters. Must be unique.'); ?></td>
+            <td>
+                <label for="user_username"><?php echo __('Username'); ?></label>
+            </td>
+            <td>
+                <input id="user_username" name="user[username]" type="text" maxlength="40" value="<?php echo $user->username; ?>" <?php echo $action == 'edit' ? 'disabled="disabled" ' : ''; ?>/>
+            </td>
+            <td class="help">
+                <?php echo __('At least 3 characters. Must be unique.'); ?>
+            </td>
         </tr>
-
         <tr>
-            <td class="label"><label for="user_password"><?php echo __('Password'); ?></label></td>
-            <td class="field"><input class="textbox" id="user_password" maxlength="40" name="user[password]" type="password" value="" /></td>
-            <td class="help" rowspan="2"><?php echo __('At least 5 characters.'); ?> <?php
-            if ($action == 'edit') {
+            <td>
+                <label for="user_password"><?php echo __('Password'); ?></label>
+            </td>
+            <td>
+                <input id="user_password" name="user[password]" type="password" maxlength="40" value="" />
+            </td>
+            <td class="help" rowspan="2">
+                <?php echo __('At least 5 characters.'); ?>
+                <?php if ($action == 'edit') {
                 echo __('Leave password blank for it to remain unchanged.');
-            }
-            ?></td>
+                } ?>
+            </td>
         </tr>
         <tr>
-            <td class="label"><label for="user_confirm"><?php echo __('Confirm Password'); ?></label></td>
-
-            <td class="field"><input class="textbox" id="user_confirm" maxlength="40" name="user[confirm]" type="password" value="" /></td>
+            <td>
+                <label for="user_confirm"><?php echo __('Confirm Password'); ?></label>
+            </td>
+            <td>
+                <input id="user_confirm" name="user[confirm]" type="password" maxlength="40" value="" />
+            </td>
         </tr>
         <?php if (AuthUser::hasPermission('user_edit')): ?>
-            <tr>
-                <td class="label"><?php echo __('Roles'); ?></td>
-                <td class="field">
+        <tr>
+            <td>
+                <label for="user_role"><?php echo __('Roles'); ?></label>
+            </td>
+            <td>
+                <ol>
                     <?php $user_roles = ($user instanceof User) ? $user->roles() : array(); ?>
                     <?php foreach ($roles as $role): ?>
-                        <span class="checkbox"><input<?php if (in_array($role->name, $user_roles))
-                    echo ' checked="checked"'; ?>  id="user_role-<?php echo $role->name; ?>" name="user_role[<?php echo $role->name; ?>]" type="checkbox" value="<?php echo $role->id; ?>" />&nbsp;<label for="user_role-<?php echo $role->name; ?>"><?php echo __(ucwords($role->displayname())); ?></label></span>
+                    <li>
+                        <label for="user_role-<?php echo $role->name; ?>"><?php echo __(ucwords($role->displayname())); ?></label>
+                        <input id="user_role-<?php echo $role->name; ?>" name="user_role[<?php echo $role->name; ?>]" type="checkbox" value="<?php echo $role->id; ?>" <?php if (in_array($role->name, $user_roles)) echo ' checked="checked"'; ?> />
+                    </li>
                     <?php endforeach; ?>
-                </td>
-                <td class="help"><?php echo __('Roles restrict user privileges and turn parts of the administrative interface on or off.'); ?></td>
-            </tr>
+                </ol>
+            </td>
+            <td class="help">
+                <?php echo __('Roles restrict user privileges and turn parts of the administrative interface on or off.'); ?>
+            </td>
+        </tr>
         <?php endif; ?>
         <tr>
-            <td class="label"><label for="user_language"><?php echo __('Language'); ?></label></td>
-            <td class="field">
-                <select class="select" id="user_language" name="user[language]">
+            <td>
+                <label for="user_language"><?php echo __('Language'); ?></label>
+            </td>
+            <td>
+                <select id="user_language" name="user[language]">
                     <?php foreach (Setting::getLanguages() as $code => $label): ?>
                     <option value="<?php echo $code; ?>"<?php if ($code == $user->language)
                     echo ' selected="selected"'; ?>><?php echo __($label); ?></option>
                     <?php endforeach; ?>
                 </select>
             </td>
-            <td class="help"><?php echo __('This will set your preferred language for the backend.'); ?></td>
+            <td class="help">
+                <?php echo __('This will set your preferred language for the backend.'); ?>
+            </td>
         </tr>
-
     </table>
-
-<?php Observer::notify('user_edit_view_after_details', $user); ?>
-
-    <p class="buttons">
-        <input class="button" name="commit" type="submit" accesskey="s" value="<?php echo __('Save'); ?>" />
-        <?php echo __('or'); ?> <a href="<?php echo (AuthUser::hasPermission('user_view')) ? get_url('user') : get_url(); ?>"><?php echo __('Cancel'); ?></a>
-    </p>
+    
+    <?php Observer::notify('user_edit_view_after_details', $user); ?>
+    
+    <div class="buttons">
+        <button id="commit" name="commit" type="submit" accesskey="s"><?php echo __('Save'); ?></button>
+        <?php echo __('or'); ?> <a href="<?php echo get_url('user'); ?>"><?php echo __('Cancel'); ?></a>
+    </div>
 
 </form>
-
-<script type="text/javascript">
-    // <![CDATA[
-    function setConfirmUnload(on, msg) {
-        window.onbeforeunload = (on) ? unloadMessage : null;
-        return true;
-    }
-
-    function unloadMessage() {
-        return '<?php echo __('You have modified this page.  If you navigate away from this page without first saving your data, the changes will be lost.'); ?>';
-    }
-
-    $(document).ready(function() {
-        // Prevent accidentally navigating away
-        $(':input').bind('change', function() { setConfirmUnload(true); });
-        $('form').submit(function() { setConfirmUnload(false); return true; });
-    });
-    
-    Field.activate('user_name');
-    // ]]>
-</script>
