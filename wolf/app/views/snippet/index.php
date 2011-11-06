@@ -1,8 +1,7 @@
 <?php
 /*
  * Wolf CMS - Content Management Simplified. <http://www.wolfcms.org>
- * Copyright (C) 2009-2010 Martijn van der Kleijn <martijn.niji@gmail.com>
- * Copyright (C) 2008 Philippe Archambault <philippe.archambault@gmail.com>
+ * Copyright (C) 2009-2011 Martijn van der Kleijn <martijn.niji@gmail.com>
  *
  * This file is part of Wolf CMS. Wolf CMS is licensed under the GNU GPLv3 license.
  * Please see license.txt for the full license text.
@@ -11,8 +10,8 @@
 /**
  * @package Views
  *
- * @author Philippe Archambault <philippe.archambault@gmail.com>
- * @copyright Philippe Archambault, 2008
+ * @author Martijn van der Kleijn <martijn.niji@gmail.com>
+ * @copyright Martijn van der Kleijn, 2011
  * @license http://www.gnu.org/licenses/gpl.html GPLv3 license
  */
 ?>
@@ -28,37 +27,19 @@
 <ul id="snippets" class="index">
 <?php foreach($snippets as $snippet): ?>
   <li id="snippet_<?php echo $snippet->id; ?>" class="snippet node <?php echo odd_even(); ?>">
-    <img align="middle" alt="snippet-icon" src="<?php echo URI_PUBLIC;?>wolf/admin/images/snippet.png" />
+    <img align="middle" alt="snippet-icon" src="<?php echo URI_PUBLIC;?>wolf/admin/images/snippet.png" title="Snippet icon" />
     <a href="<?php echo get_url('snippet/edit/'.$snippet->id); ?>"><?php echo $snippet->name; ?></a>
     <img class="handle" src="<?php echo URI_PUBLIC;?>wolf/admin/images/drag.gif" alt="<?php echo __('Drag and Drop'); ?>" align="middle" />
-    <div class="remove"><a class="remove" href="<?php echo get_url('snippet/delete/'.$snippet->id); ?>" onclick="return confirm('<?php echo __('Are you sure you wish to delete?'); ?> <?php echo $snippet->name; ?>?');"><img src="<?php echo URI_PUBLIC;?>wolf/admin/images/icon-remove.gif" alt="<?php echo __('delete snippet icon'); ?>" title="<?php echo __('Delete snippet'); ?>" /></a></div>
+    <div class="remove"><a href="<?php echo get_url('snippet/delete/'.$snippet->id); ?>" onclick="return confirm('<?php echo __('Are you sure you wish to delete?'); ?> <?php echo $snippet->name; ?>?');"><img src="<?php echo URI_PUBLIC;?>wolf/admin/images/icon-remove.gif" alt="<?php echo __('delete snippet icon'); ?>" title="<?php echo __('Delete snippet'); ?>" /></a></div>
   </li>
 <?php endforeach; ?>
 </ul>
 
 <script type="text/javascript">
 // <![CDATA[
-    jQuery.fn.sortableSetup = function sortableSetup() {
-        this.sortable({
-            disabled:true,
-            tolerance:'intersect',
-       		containment:'#page-content',
-       		placeholder:'placeholder',
-            handle: '.handle',
-            cursor:'crosshair',
-       		distance:'15',
-            stop: function(event, ui) {
-                var order = $(ui.item.parent()).sortable('serialize', {key: 'snippets[]'});
-                $.post('<?php echo get_url('snippet/reorder/'); ?>', {data : order});
-            }
-        })
-        .disableSelection();
-
-        return this;
-    };
 
     $(document).ready(function() {
-        $('ul#snippets').sortableSetup();
+        $('ul#snippets').sortableSetup('snippet');
         $('#reorder-toggle').toggle(
             function(){
                 $('ul#snippets').sortable('option', 'disabled', false);

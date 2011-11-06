@@ -1,6 +1,6 @@
 /*
  * Wolf CMS - Content Management Simplified. <http://www.wolfcms.org>
- * Copyright (C) 2009-2010 Martijn van der Kleijn <martijn.niji@gmail.com>
+ * Copyright (C) 2009-2011 Martijn van der Kleijn <martijn.niji@gmail.com>
  *
  * This file is part of Wolf CMS. Wolf CMS is licensed under the GNU GPLv3 license.
  * Please see license.txt for the full license text.
@@ -125,6 +125,25 @@ function center(element) {
     element.style.top = (top + 200) + 'px';
     element.style.left = ((header.offsetWidth - dim.width) / 2) + 'px';
 }
+
+$.fn.sortableSetup = function sortableSetup(itemname) {
+    this.sortable({
+        disabled:true,
+        tolerance:'intersect',
+        containment:'#page-content',
+        placeholder:'placeholder',
+        handle: '.handle',
+        cursor:'crosshair',
+        distance:'15',
+        stop: function(event, ui) {
+            var order = $(ui.item.parent()).sortable('serialize', {key: itemname+'s[]'});
+            $.post(wolfBaseUrl+itemname+'/reorder/', {data : order});
+        }
+    })
+    .disableSelection();
+
+    return this;
+};
 
 $(document).ready(function() {
     

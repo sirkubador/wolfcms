@@ -2,7 +2,7 @@
 
 /*
  * Wolf CMS - Content Management Simplified. <http://www.wolfcms.org>
- * Copyright (C) 2008-2010 Martijn van der Kleijn <martijn.niji@gmail.com>
+ * Copyright (C) 2008-2011 Martijn van der Kleijn <martijn.niji@gmail.com>
  *
  * This file is part of Wolf CMS. Wolf CMS is licensed under the GNU GPLv3 license.
  * Please see license.txt for the full license text.
@@ -12,7 +12,7 @@
  * @package Controllers
  *
  * @author Martijn van der Kleijn <martijn.niji@gmail.com>
- * @copyright Martijn van der Kleijn, 2009-2010
+ * @copyright Martijn van der Kleijn, 2009-2011
  * @license http://www.gnu.org/licenses/gpl.html GPL License
  */
 
@@ -168,7 +168,29 @@ class SettingController extends Controller {
         Plugin::uninstall($plugin);
         Observer::notify('plugin_after_uninstall', $plugin);
     }
+    
+    
+    /**
+     * Is used to provide information to JS scripts.
+     * 
+     * The information provided by this method is/should not be sensitive and
+     * can be used by external JS scripts as a base for URLs for example.
+     * 
+     * The function is read-only and will not accept any arguments.
+     */
+    public final function jsbase() {
+        Header("content-type: application/x-javascript");
+        echo "var wolfUriPublic = '".URI_PUBLIC."';\n";
+        echo "var wolfUrlPublic = '".URL_PUBLIC."';\n";
+        echo "var wolfBaseUri = '".BASE_URI."';\n";
+        echo "var wolfBaseUrl = '".BASE_URL."';\n";
+        echo "var wolfPluginsUri = '".PLUGINS_URI."';\n";
+        echo "var wolfIconsUri = '".ICONS_URI."';\n";
+        echo "var wolfThemesUri = '".THEMES_URI."';\n";
+        exit();
+    }
 
+    
     /**
      * @var array All ISO 639-1 language codes.
      */

@@ -55,6 +55,7 @@ if (isset($this->vars['content_for_layout']->vars['action'])) {
         <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/jquery.ui.nestedSortable.js"></script>
         <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/cp-datepicker.js"></script>
         <script src="<?php echo URI_PUBLIC; ?>wolf/admin/markitup/jquery.markitup.js"></script>
+        <script src="<?php echo BASE_URI; ?>wolfbase.js"></script>
         <script src="<?php echo URI_PUBLIC; ?>wolf/admin/javascripts/wolf.js"></script>
 
 <?php foreach(Plugin::$plugins as $plugin_id => $plugin): ?>

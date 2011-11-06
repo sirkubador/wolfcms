@@ -1,7 +1,7 @@
 <?php
 /*
  * Wolf CMS - Content Management Simplified. <http://www.wolfcms.org>
- * Copyright (C) 2009-2010 Martijn van der Kleijn <martijn.niji@gmail.com>
+ * Copyright (C) 2009-2011 Martijn van der Kleijn <martijn.niji@gmail.com>
  * Copyright (C) 2008 Philippe Archambault <philippe.archambault@gmail.com>
  *
  * This file is part of Wolf CMS. Wolf CMS is licensed under the GNU GPLv3 license.
@@ -176,10 +176,14 @@ Plugin::init();
 Flash::init();
 
 // Setup admin routes
+// Note: The wolfbase.js entry without ADMIN_DIR is for frontend.
+//       Frontend version therefore lives at BASE_URI.'wolfbase.js'.
 $admin_routes = array (
-    '/'.ADMIN_DIR          => Setting::get('default_tab'),
-    '/'.ADMIN_DIR.'/'      => Setting::get('default_tab'),
-    '/'.ADMIN_DIR.'/:all'  => '$1',
+    '/'.ADMIN_DIR                   => Setting::get('default_tab'),
+    '/'.ADMIN_DIR.'/'               => Setting::get('default_tab'),
+    '/'.ADMIN_DIR.'/:all'           => '$1',
+    '/'.ADMIN_DIR.'/wolfbase.js'    => 'setting/jsbase',
+    '/wolfbase.js'                  => 'setting/jsbase'
 );
 
 Dispatcher::addRoute($admin_routes);
