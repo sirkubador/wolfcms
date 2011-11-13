@@ -63,7 +63,7 @@
             <form action="<?php echo get_url('login', 'forgot'); ?>" method="post">
                 <div>
                     <label for="forgot-email"><?php echo __('Email address'); ?>:</label>
-                    <input class="long" id="forgot-email" type="text" name="forgot[email]" value="<?php echo $email; ?>" />
+                    <input class="long" id="forgot-email" type="email" name="forgot[email]" value="<?php echo $email; ?>" />
                 </div>
                 <div id="forgot-submit">
                     <input class="submit" type="submit" accesskey="s" value="<?php echo __('Send password'); ?>" />
