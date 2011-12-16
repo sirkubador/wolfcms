@@ -139,3 +139,32 @@ form table ol li {
     display: block;
     margin: 0; padding: 0;
 }
+
+#page-content ol, #page-content ul {
+    list-style-position: inside;
+    margin-left: 3em;
+    margin-right: 2em;
+}
+
+#page-content ol li {
+    list-style-type: decimal;
+}
+#page-content ul li {
+    list-style-type: disc;
+}
+
+#page-content h2 {
+    font-size: 1.35em;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#page-content p {
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+#page-content table {
+    width: auto;
+    margin-left: 2em;
+    margin-right: 2em;
+}
