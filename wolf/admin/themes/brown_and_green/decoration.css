@@ -267,6 +267,18 @@ a#site-view-link:hover {
 	color: #999;
 }
 
+#plugins tr {
+	-webkit-transition: background-color 500ms ease-in-out;
+	-moz-transition: background-color 500ms ease-in-out;
+	-o-transition: background-color 500ms ease-in-out;
+	-ms-transition: background-color 500ms ease-in-out;	
+	transition: background-color 500ms ease-in-out;
+}
+
+#plugins tr:hover {
+  background-color: #ddf8cc;
+}
+
 
 /* FORMS */
 form#settings table.fieldset td.label .optional {
