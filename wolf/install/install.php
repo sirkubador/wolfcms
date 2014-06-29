@@ -1,10 +1,13 @@
 <?php
-/*
+/**
  * Wolf CMS - Content Management Simplified. <http://www.wolfcms.org>
  * Copyright (C) 2009 Martijn van der Kleijn <martijn.niji@gmail.com>
  *
  * This file is part of Wolf CMS. Wolf CMS is licensed under the GNU GPLv3 license.
  * Please see license.txt for the full license text.
+ * 
+ * Jakub Korbel <i@jakubkorbel.cz> - Update jquery version
+ * 
  */
 
 /**
@@ -20,7 +23,7 @@ if (!defined('INSTALL_SEQUENCE')) {
 $drivers = PDO::getAvailableDrivers();
 ?>
 
-    <script type="text/javascript" charset="utf-8" src="../admin/javascripts/jquery-1.6.2.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../admin/javascripts/jquery-1.8.3.min.js"></script>
     <script type="text/javascript">
     // <![CDATA[
         $(document).ready(function() {
